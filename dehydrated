@@ -623,9 +623,9 @@ sign_csr() {
 echo "WARNING: Creating self signed certificate for test!!!"
 if [[ -f "${BASEDIR}/certs/${domain}/privkey-${timestamp}.pem" ]]
 then
-    crt="$( <<<"${csr}" openssl x509 -req -days 1 -signkey ${BASEDIR}/certs/${domain}/privkey-${timestamp}.pem )"
+    crt="$( <<<"${csr}" openssl x509 -req -days 60 -signkey ${BASEDIR}/certs/${domain}/privkey-${timestamp}.pem )"
 else
-    crt="$( <<<"${csr}" openssl x509 -req -days 1 -signkey ${BASEDIR}/certs/${domain}/privkey.pem )"
+    crt="$( <<<"${csr}" openssl x509 -req -days 60 -signkey ${BASEDIR}/certs/${domain}/privkey.pem )"
 fi
 
   # Try to load the certificate to detect corruption
